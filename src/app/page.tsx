@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { Scene } from "@/components/Scene";
 import { Prop } from "@/components/Prop";
 import { HUD } from "@/components/HUD";
@@ -8,6 +9,43 @@ export default function Home() {
     return (
         <main className="snap-container">
             <HUD />
+
+            {/* Intro Scene */}
+            <Scene id="intro" title="Jason" bgColor="bg-slate-50">
+                <div className="flex flex-col md:flex-row items-center gap-12 px-8 max-w-4xl mx-auto h-full justify-center">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        className="w-64 h-64 rounded-full overflow-hidden border-8 border-white shadow-2xl flex-shrink-0"
+                    >
+                        <img
+                            src="/jason_headshot.png"
+                            alt="Jason's Headshot"
+                            className="w-full h-full object-cover"
+                            onError={(e) => {
+                                e.currentTarget.src = "https://api.dicebear.com/7.x/avataaars/svg?seed=Jason";
+                            }}
+                        />
+                    </motion.div>
+                    <motion.div
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                        className="flex flex-col gap-6 text-slate-800 text-center md:text-left"
+                    >
+                        <h1 className="text-5xl font-bold tracking-tight">Hi, I'm Jason.</h1>
+                        <p className="text-xl leading-relaxed opacity-80">
+                            I'm a <button onClick={() => document.getElementById('writer')?.scrollIntoView({ behavior: 'smooth' })} className="font-bold underline decoration-stone-400 hover:text-stone-600 transition-colors">Writer</button>,
+                            an <button onClick={() => document.getElementById('artist')?.scrollIntoView({ behavior: 'smooth' })} className="font-bold underline decoration-amber-600 hover:text-amber-800 transition-colors">Artist</button>,
+                            and a <button onClick={() => document.getElementById('coder')?.scrollIntoView({ behavior: 'smooth' })} className="font-bold underline decoration-slate-600 hover:text-slate-800 transition-colors">Coder</button>.
+                        </p>
+                        <p className="text-lg opacity-60">
+                            Welcome to my interactive portfolio. Explore my workspace below.
+                        </p>
+                    </motion.div>
+                </div>
+            </Scene>
 
             {/* Writer Scene */}
             <Scene id="writer" title="Writer" bgColor="bg-stone-300">
@@ -30,7 +68,7 @@ export default function Home() {
             </Scene>
 
             {/* Artist Scene */}
-            <Scene id="artist" title="Artist" bgColor="bg-amber-950">
+            <Scene id="artist" title="Artist" bgColor="bg-amber-950" isDark={true}>
                 <Prop x="30%" y="40%" intensity={20} label="Sketchbook">
                     <div className="w-56 h-72 bg-orange-100 shadow-2xl border-l-[12px] border-amber-900 rounded-r-lg p-6">
                         <div className="w-full h-full border border-orange-200/50 flex items-center justify-center">
@@ -48,7 +86,7 @@ export default function Home() {
             </Scene>
 
             {/* Coder Scene */}
-            <Scene id="coder" title="Coder" bgColor="bg-slate-950">
+            <Scene id="coder" title="Coder" bgColor="bg-slate-950" isDark={true}>
                 <Prop x="40%" y="35%" intensity={25} label="Laptop">
                     <div className="w-96 h-64 bg-slate-800 rounded-xl shadow-2xl flex flex-col p-2 overflow-hidden border border-slate-700">
                         <div className="h-6 w-full bg-slate-900 flex gap-1 items-center px-2">

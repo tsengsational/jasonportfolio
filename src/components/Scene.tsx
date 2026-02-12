@@ -8,6 +8,7 @@ interface SceneProps {
     bgColor: string;
     children: React.ReactNode;
     title: string;
+    isDark?: boolean;
 }
 
 export const Scene: React.FC<SceneProps> = ({
@@ -15,6 +16,7 @@ export const Scene: React.FC<SceneProps> = ({
     bgColor,
     children,
     title,
+    isDark = false,
 }) => {
     return (
         <section
@@ -23,11 +25,12 @@ export const Scene: React.FC<SceneProps> = ({
         >
             <Desk bgColor={bgColor}>
                 {/* Scene Identifier (Optional/Subtle) */}
-                <div className="absolute top-12 left-12 z-0 opacity-10 select-none">
-                    <h2 className="text-8xl font-black uppercase tracking-tighter text-black">
+                <div className="absolute top-12 left-12 z-0 opacity-40 select-none">
+                    <h2 className={`text-8xl font-black uppercase tracking-tighter ${isDark ? "text-white" : "text-black"}`}>
                         {title}
                     </h2>
                 </div>
+
 
                 {children}
             </Desk>
