@@ -20,7 +20,7 @@ export default function Home() {
                         className="w-64 h-64 rounded-full overflow-hidden border-8 border-white shadow-2xl flex-shrink-0"
                     >
                         <img
-                            src="/jason_headshot.png"
+                            src="/jason_headshot.jpg"
                             alt="Jason's Headshot"
                             className="w-full h-full object-cover"
                             onError={(e) => {
