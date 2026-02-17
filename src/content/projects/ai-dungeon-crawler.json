@@ -1,0 +1,14 @@
+{
+  "title": "AI Dungeon Crawler",
+  "description": "A procedural rogue-like game with AI-generated narrative events.",
+  "category": "coding",
+  "link": "https://github.com/example/dungeon",
+  "tags": [
+    "Python",
+    "OpenAI",
+    "Game Dev"
+  ],
+  "heroImage": null,
+  "gallery": [],
+  "content": []
+}

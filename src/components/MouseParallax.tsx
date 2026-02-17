@@ -11,7 +11,7 @@ interface MouseParallaxProps {
 
 export const MouseParallax: React.FC<MouseParallaxProps> = ({
     children,
-    intensity = 20,
+    intensity = 10,
     className = "",
 }) => {
     const containerRef = useRef<HTMLDivElement>(null);
